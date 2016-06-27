@@ -1,3 +1,5 @@
+import mapActionToReducer from 'redux-action-reducer-mapper';
+
 // define available actions
 export default {
   changeTitle(newTitle) {
@@ -6,6 +8,7 @@ export default {
 }
 
 // define reducer that knows how to deal with the actions defined above
+/*
 export const reducer = (state = '', action) => {
   switch(action.type) {
     case 'CHANGE_TITLE':
@@ -14,3 +17,12 @@ export const reducer = (state = '', action) => {
       return state;
   }
 }
+*/
+
+// define reducer that knows how to deal with the actions defined above
+// but using redux-action-reducer-mapper which allows to keep the complexity
+// of the reducer on a predictibly low level
+export const reducer = mapActionToReducer({
+  'default': '',
+  'CHANGE_TITLE': (state, action) => action.payload
+});

@@ -21,8 +21,6 @@ if (window.devToolsExtension) {
 const store = createStore(
   // root reducer to use
   reducer,
-  // initial application state
-  { title: 'Hello, world!' },
   // middleware
   middleware);
 
