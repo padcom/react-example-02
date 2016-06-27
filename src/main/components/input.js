@@ -13,6 +13,8 @@ const Input = ({ title, actions }) => (
 )
 
 export default connect (
+  // map state to props
   state => ({ title: state.title }),
+  // map dispatch to props
   dispatch => ({ actions: bindActionCreators(TitleActions, dispatch) })
 )(Input);
