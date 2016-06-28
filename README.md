@@ -1,4 +1,4 @@
-![Build status](https://api.travis-ci.org/padcom/react-example-02.svg)
+[![Build status](https://api.travis-ci.org/padcom/react-example-02.svg)](https://travis-ci.org/padcom/react-example-02)
 
 ## React/Redux/Webpack/Mocha example
 
