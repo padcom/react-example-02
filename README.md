@@ -1,3 +1,5 @@
+![Build status](https://api.travis-ci.org/padcom/react-example-02.svg)
+
 ## React/Redux/Webpack/Mocha example
 
 This example shows how to configure a full working solution using webpack, React and Redux with tests, developer setup with hot reloading and a fully working production build.
