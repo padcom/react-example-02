@@ -1,11 +1,8 @@
-var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const mode = process.env.NODE_ENV;
-
 module.exports = {
-  // depending on the mode we're running select the appropriate sourcemap
-  devtool: mode === 'development' ? 'eval-source-map' : undefined,
+  // select the appropriate sourcemap for debugging
+  devtool: 'eval-source-map',
   // define application entry point
   entry: [
     __dirname + "/src/main/index.js",

@@ -2,8 +2,8 @@
   "name": "react-example-02",
   "version": "0.0.1",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --hot --inline --port 3000",
-    "build": "NODE_ENV=production webpack -p --progress --config webpack-production.config.js",
+    "start": "webpack-dev-server --hot --inline --port 3000",
+    "build": "webpack -p --progress --config webpack-production.config.js",
     "test": "mocha --compilers js:babel-register --require src/test/setup.js 'src/test/**/*.test.js'",
     "test:watch": "mocha --compilers js:babel-register --require src/test/setup.js --watch 'src/test/**/*.test.js'"
   },

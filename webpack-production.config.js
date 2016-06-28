@@ -1,18 +1,25 @@
 const webpack = require('webpack');
 const Config = require('webpack-config').Config;
 
-module.exports = new Config().extend('./webpack.config.js').merge({
+const config = new Config().extend('./webpack.config.js').merge({
+  // select the appropriate sourcemap for production
+  devtool: null,
+  // configure additional plugins for productin build
   plugins: [
-    // make sure the NODE_ENV variable is passed on so that components
-    // are build in the same mode as the webpack is running (e.g. development, production)
+    // make sure the NODE_ENV variable is passed on
+    // so that components are build in the proper mode
     new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-      }
+      'process.env': { 'NODE_ENV': '"production"' }
     }),
-    // Include standard plugins for production build minification
+    // include standard plugins for production build minification
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     new webpack.optimize.OccurenceOrderPlugin()
   ]
 });
+
+// strip react-hot loader
+config.module.loaders[0].loader = config.module.loaders[0].loader.replace('react-hot!', '');
+
+// export the final configuration
+module.exports = config;
