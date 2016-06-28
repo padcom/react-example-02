@@ -30,16 +30,11 @@ module.exports = {
     ]
   },
   postcss() {
+    // configuration for the postcss loader;
+    // enables autoprefixer postprocessor in CSS
     return [ require('autoprefixer') ]
   },
   plugins: [
-    // make sure the NODE_ENV variable is passed on so that components
-    // are build in the same mode as the webpack is running (e.g. development, production)
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-      }
-    }),
     // this plugin creates the final index.html based on a template
     new HtmlWebpackPlugin({ template: 'src/main/index.html' })
   ]

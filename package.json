@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --hot --inline --port 3000",
-    "build": "NODE_ENV=production webpack -p --progress",
+    "build": "NODE_ENV=production webpack -p --progress --config webpack-production.config.js",
     "test": "mocha --compilers js:babel-register --require src/test/setup.js 'src/test/**/*.test.js'",
     "test:watch": "mocha --compilers js:babel-register --require src/test/setup.js --watch 'src/test/**/*.test.js'"
   },
@@ -41,6 +41,7 @@
     "redux-mock-store": "^1.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "webpack-config": "^5.1.0"
   }
 }
