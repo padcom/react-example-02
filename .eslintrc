@@ -24,7 +24,7 @@
     // Default to single quotes and raise an error if something
     // else is used
     "quotes": [ 2, "single" ],
-    // Disable requirement for defining all props types
-    "react/prop-types": [ 0 ]
+    // Disable requirement to defining all props types
+    "react/prop-types": 0
   }
 }

@@ -2,10 +2,13 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  // depending on the mode we're running select the appropriate sourcemap
   devtool: process.env.NODE_ENV === 'development' ? 'eval-source-map' : '',
+  // define application entry point
   entry: {
     main: __dirname + "/src/main/index.js"
   },
+  // define where to output the compiled sources
   output: {
     path: __dirname + "/target", filename: "index.js"
   },
@@ -27,6 +30,7 @@ module.exports = {
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
       }
     }),
+    // this plugin creates the final index.html based on a template
     new HtmlWebpackPlugin({ template: 'src/main/index.html' })
   ]
 }

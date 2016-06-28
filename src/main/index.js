@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
+// the reducers.js contains exports of all reducers from
+// individual state elements to make it easy to import them
+// all at once
+import * as reducers from './reducers';
+
+// Import main application component
 import App from './components/app';
-import { reducer as title } from './state/title';
 
 // Define root reducer
-const reducer = combineReducers({
-  title
-});
+const reducer = combineReducers(reducers);
 
 // Define used middleware (e.g. thunk, promise..)
 let middleware = applyMiddleware();
