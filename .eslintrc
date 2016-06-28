@@ -23,6 +23,8 @@
     "no-underscore-dangle": 1,
     // Default to single quotes and raise an error if something else is used
     "quotes": [ 2, "single" ],
+    // Enforce max cyclomatic code complexity to be 5
+    "complexity": [ 2, { max: 5 } ],
     // Disable requirement to defining all props types
     "react/prop-types": 0,
     // Tweak rule for unknown properties in elements because we use babel-plugin-react-html-attrs
