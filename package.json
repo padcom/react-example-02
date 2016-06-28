@@ -4,7 +4,7 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline --port 3000",
     "build": "webpack -p --progress --config webpack-production.config.js",
-    "test": "mocha --compilers js:babel-register --require src/test/setup.js 'src/test/**/*.test.js'",
+    "test": "mocha --compilers js:babel-register --require src/test/setup.js 'src/test/**/*.test.js' 'src/test/eslint.js'",
     "test:watch": "mocha -d --compilers js:babel-register --require src/test/setup.js --watch 'src/test/**/*.test.js'"
   },
   "devDependencies": {
