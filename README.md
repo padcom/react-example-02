@@ -39,12 +39,11 @@ Starts development server listening on port 3000 with hot reloading.
 
 Starts Mocha in watch mode running all tests when the sources change.
 The reporter here is `min` which will only show the summary and status of failed tests.
-ESLint test is not executed to speed up the execution of tests but is part of the `npm start` process.
+ESLint test is not executed to speed up the execution of tests but that one is part of the `npm start` process.
 
 #### npm test
 
-Runs all tests (including). It is intended for local use (not CI). This includes all tests,
-also ESlint.
+Runs all tests. It is intended for local use (not CI). This includes all tests, including ESlint.
 
 #### npm -s run test:ci
 
