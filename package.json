@@ -8,6 +8,7 @@
     "test:watch": "mocha --compilers js:babel-register --require src/test/setup.js --watch 'src/test/**/*.test.js'"
   },
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "babel-core": "^6.10.4",
     "babel-eslint": "^6.1.0",
     "babel-loader": "^6.2.4",
@@ -28,6 +29,7 @@
     "less-loader": "^2.2.3",
     "mocha": "^2.5.3",
     "mocha-eslint": "^2.1.1",
+    "postcss-loader": "^0.9.1",
     "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "react-dev-server": "^0.6.2",

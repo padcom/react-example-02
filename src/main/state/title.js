@@ -9,7 +9,7 @@ export default {
 
 // define reducer that knows how to deal with the actions defined above
 /*
-export const reducer = (state = '', action) => {
+export const reducer = (state = 'Hello, world!', action) => {
   switch(action.type) {
     case 'CHANGE_TITLE':
       return action.payload;
@@ -23,6 +23,6 @@ export const reducer = (state = '', action) => {
 // but using redux-action-reducer-mapper which allows to keep the complexity
 // of the reducer on a predictibly low level
 export const reducer = mapActionToReducer({
-  'default': '',
+  'default': 'Hello, world!',
   'CHANGE_TITLE': (state, action) => action.payload
 });

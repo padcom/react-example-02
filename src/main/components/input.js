@@ -6,9 +6,9 @@ import { bindActionCreators } from 'redux';
 import TitleActions from '../state/title';
 
 const Input = ({ title, actions }) => (
-  <div>
-    <label>Enter new title: </label>
-    <input value={title} onChange={e => actions.changeTitle(e.target.value)} />
+  <div class="input">
+    <label>Enter title </label>
+    <input value={title} onChange={e => actions.changeTitle(e.target.value)} autoFocus />
   </div>
 )
 

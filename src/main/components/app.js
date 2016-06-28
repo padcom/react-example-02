@@ -5,8 +5,8 @@ import Input from './input';
 
 const App = () => (
   <div>
-    <Title />
     <Input />
+    <Title />
   </div>
 )
 

@@ -2,11 +2,11 @@
   // Extend existing configuration
   // from ESlint and eslint-plugin-react defaults.
   "extends": [
-    "eslint:recommended", "plugin:react/recommended"
+    "eslint:recommended",
+    "plugin:react/recommended"
   ],
-  // Enable ES6 support. If you want to use custom Babel
-  // features, you will need to enable a custom parser
-  // as described in a section below.
+  // Enable ES6 support. If you want to use custom Babel features,
+  // you will need to enable a custom parser as described in a section below.
   "parser": "babel-eslint",
   "env": {
     "browser": true,
@@ -21,10 +21,11 @@
     "no-console": 0,
     // Give a warning if identifiers contain underscores
     "no-underscore-dangle": 1,
-    // Default to single quotes and raise an error if something
-    // else is used
+    // Default to single quotes and raise an error if something else is used
     "quotes": [ 2, "single" ],
     // Disable requirement to defining all props types
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    // Tweak rule for unknown properties in elements because we use babel-plugin-react-html-attrs
+    "react/no-unknown-property": [ 2, { ignore: [ "class", "for" ] } ]
   }
 }
