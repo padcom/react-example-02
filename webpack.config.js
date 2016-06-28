@@ -5,9 +5,10 @@ module.exports = {
   // depending on the mode we're running select the appropriate sourcemap
   devtool: process.env.NODE_ENV === 'development' ? 'eval-source-map' : '',
   // define application entry point
-  entry: {
-    main: __dirname + "/src/main/index.js"
-  },
+  entry: [
+    __dirname + "/src/main/index.js",
+    __dirname + "/src/main/index.less"
+  ],
   // define where to output the compiled sources
   output: {
     path: __dirname + "/target", filename: "index.js"
@@ -19,7 +20,11 @@ module.exports = {
     ],
     loaders: [
       // transpile all .js files from es6 to es5
-      { test: /\.js$/, exclude: /node_modules/, loader: 'react-hot!babel-loader' }
+      { test: /\.js$/, exclude: /node_modules/, loader: 'react-hot!babel-loader' },
+      // process all .less files to css
+      { test: /\.less$/, exclude: /node_modules/, loader: 'style!css!less' },
+      // load images from Less/CSS
+      { test: /\.(gif|png|jpg|jpeg|svg)($|\?)/, loader: 'url?limit=5000&hash=sha512&digest=hex&size=16&name=assets/[name]-[hash].[ext]' }
     ]
   },
   plugins: [
