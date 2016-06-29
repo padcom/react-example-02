@@ -78,7 +78,7 @@ interest of making things easier to read and write the [react-html-attrs](https:
 
 ### CSS/Less
 
-The CSS/Less loader has been configured so that styles are modules that can be imported into the sources and then used. The biggest advantage of this approach is human-readable code and scoped CSS (no more need for BEM or any other naming convention!). See `src/main/components/Input.js & Input.less` for example.
+The CSS/Less loader has been configured so that styles are modules that can be imported into the sources and then used. The biggest advantage of this approach is human-readable code and scoped CSS (no more need for BEM or any other naming convention!). See `src/main/components/Input.js & Input.less` for example. This [blog post](https://medium.com/seek-ui-engineering/the-end-of-global-css-90d2a4a06284#.ns3j3xts2) explains in details the behavior. Just note that with the addition of [`module`](https://github.com/css-modules/css-modules) option for `css-loader` all classes are local by default (postcss-local-scope not needed!!).
 
 You can always create globally scoped classes. To do that define then in `:global { ... }` scope. See `src/main/components/App.less` for example.
 
