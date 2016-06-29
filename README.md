@@ -110,7 +110,7 @@ Reducers and actions are kept in the same file as per Dan Abramov's suggestion t
 
 One notable addition: instead of using a complex `switch/case` statement I have opted to use a function that calls the appropriate subreducers based on the action provided. That functionality is provided by [redux-action-reducer-mapper](https://www.npmjs.com/package/redux-action-reducer-mapper). That way the complexity of the inner-workings of the reducer is zero and no tests to cover that piece are necessary. That does not mean you should not tests your reducers! You just don't have to have a tests that checks if all paths through the `swich/case` are covered. Had that not been the case the ESLint rule for max cyclomatic code complexity of 5 would have easily been violated.
 
-### Components and Prvider
+### Components and Provider
 
 All components in this basic setup are stateless and declared as pure functions. To connect them to Redux' store I used the [react-redux](https://github.com/reactjs/react-redux) package. Please see [this](https://egghead.io/lessons/javascript-redux-passing-the-store-down-with-provider-from-react-redux) and the next lessons on [egghead.io](http://egghead.io). The only deviation from what's in that tutorial is that I didn't explicitly declare the `mapStateToProps` and `mapDispatchToProps` functions inlining them close to the call to `connect`.
 
