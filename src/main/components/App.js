@@ -3,10 +3,10 @@ import React from 'react';
 import Title from './Title';
 import Input from './Input';
 
-import styles from './App.less'
+import css from './App.less'
 
 const App = () => (
-  <div class={styles.component}>
+  <div class={css.component}>
     <Input />
     <Title />
   </div>

@@ -5,12 +5,12 @@ import { bindActionCreators } from 'redux';
 
 import TitleActions from '../state/title';
 
-import styles from './Input.less';
+import css from './Input.less';
 
 const Input = ({ title, actions }) => (
-  <div class={styles.component}>
-    <label class={styles.label}>Enter title</label>
-    <input class={styles.textbox}value={title} onChange={e => actions.changeTitle(e.target.value)} autoFocus />
+  <div class={css.component}>
+    <label class={css.label}>Enter title</label>
+    <input class={css.textbox} value={title} onChange={e => actions.changeTitle(e.target.value)} autoFocus />
   </div>
 )
 
