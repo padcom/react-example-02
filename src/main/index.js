@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 
 // Import main application component
-import App from './components/app';
+import App from './components/App';
 
 // Render the application's root component to DOM element
 ReactDOM.render(

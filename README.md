@@ -78,9 +78,9 @@ interest of making things easier to read and write the [react-html-attrs](https:
 
 ### CSS/Less
 
-The CSS/Less loader has been configured so that styles are modules that can be imported into the sources and then used. The biggest advantage of this approach is human-readable code and scoped CSS (no more need for BEM or any other naming convention!). See `src/main/components/input.js & input.less` for example.
+The CSS/Less loader has been configured so that styles are modules that can be imported into the sources and then used. The biggest advantage of this approach is human-readable code and scoped CSS (no more need for BEM or any other naming convention!). See `src/main/components/Input.js & Input.less` for example.
 
-You can always create globally scoped classes. To do that define then in `:global { ... }` scope. See `src/main/components/app.less` for example.
+You can always create globally scoped classes. To do that define then in `:global { ... }` scope. See `src/main/components/App.less` for example.
 
 ### ESLint
 
@@ -97,7 +97,7 @@ There are 3 special properties of the test environment:
 
   - all tests are run in a simulated browser environment using [jsdom](https://github.com/tmpvar/jsdom). The advantage over using things like PhantomJS is speed - tests run approximately 3-4 times faster due to very long startup time of the browser.
   - chai's `expect` and enzyme's `mount`, `shallow` and `render` methods are available globally
-  - a preconfigured `mockStore` ([redux-mock-store](https://github.com/arnaudbenard/redux-mock-store)) is also available globally (see `src/test/components/title.test.js`)
+  - a preconfigured `mockStore` ([redux-mock-store](https://github.com/arnaudbenard/redux-mock-store)) is also available globally (see `src/test/components/Title.test.js`)
 
 The entire setup of test environment happens in `src/test/setup.js` and can serve as extension point for
 further enhancements.

@@ -1,4 +1,4 @@
-import Title from '../../main/components/title';
+import Title from '../../main/components/Title';
 
 // mockStore and mount are injected in src/test/setup.js
 
