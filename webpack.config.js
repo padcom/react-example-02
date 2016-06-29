@@ -4,10 +4,7 @@ module.exports = {
   // select the appropriate sourcemap for debugging
   devtool: 'eval-source-map',
   // define application entry point
-  entry: [
-    __dirname + "/src/main/index.js",
-    __dirname + "/src/main/index.less"
-  ],
+  entry: __dirname + "/src/main/index.js",
   // define where to output the compiled sources
   output: {
     path: __dirname + "/target", filename: "index.js"
@@ -21,7 +18,7 @@ module.exports = {
       // transpile all .js files from es6 to es5
       { test: /\.js$/, exclude: /node_modules/, loader: 'react-hot!babel-loader' },
       // process all .less files to css
-      { test: /\.less$/, exclude: /node_modules/, loader: 'style!css!postcss!less' },
+      { test: /\.less$/, exclude: /node_modules/, loaders: [ 'style', 'css?modules&localIdentName=[name]__[local]___[hash:base64:5]', 'postcss', 'less' ] },
       // load images from Less/CSS
       { test: /\.(gif|png|jpg|jpeg|svg)($|\?)/, loader: 'url?limit=5000&hash=sha512&digest=hex&size=16&name=assets/[name]-[hash].[ext]' }
     ]

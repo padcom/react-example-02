@@ -63,21 +63,24 @@ Organization of the project is very similar in many aspects to that of a Java Ma
 This means that all main project source files are inside of `src/main` folder, all tests are located
 underneath `src/test`, all output goes to `target` (not `dist` as it usually is with Node projects).
 
-There are 3 main entry points in the build:
+There are 2 main entry points in the build:
 
   - `src/main/index.js` - entry point for the application
-  - `src/main/index.less` - entry point for less sources (CSS preprocessor)
   - `src/main/index.html` - entry point for the browser
 
-All 3 entry points undergo some sort of processing. `index.js` is compiled using Babel ES6 transpiler
-and `index.less` is obviously processed using the less preprocessor. `index.html` gets injected with
-the transpiled version of `index.js`.
+Both entry points undergo some sort of processing. `index.js` is compiled using Babel ES6 transpiler. `index.html` gets injected with the transpiled version of `index.js`.
 
 ### Babel configuration
 
 The Babel transpiler has been equipped with the obvious `es2015` and `react` presets. However, in the
 interest of making things easier to read and write the [react-html-attrs](https://github.com/insin/babel-plugin-react-html-attrs) plugin has been added so that
 `class` and `for` are not banned from JSX.
+
+### CSS/Less
+
+The CSS/Less loader has been configured so that styles are modules that can be imported into the sources and then used. The biggest advantage of this approach is human-readable code and scoped CSS (no more need for BEM or any other naming convention!). See `src/main/components/input.js & input.less` for example.
+
+You can always create globally scoped classes. To do that define then in `:global { ... }` scope. See `src/main/components/app.less` for example.
 
 ### ESLint
 
