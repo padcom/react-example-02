@@ -4,9 +4,10 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline --port 3000",
     "build": "webpack -p --progress --config webpack-production.config.js",
-    "test": "mocha --compilers js:babel-register --require src/test/setup.js -R progress 'src/test/**/*.test.js' 'src/test/eslint.js'",
-    "test:ci": "mocha --compilers js:babel-register --require src/test/setup.js -R xunit 'src/test/**/*.test.js' 'src/test/eslint.js'",
-    "test:watch": "mocha -d --compilers js:babel-register --require src/test/setup.js --watch -R min 'src/test/**/*.test.js'"
+    "test": "mocha --compilers js:babel-register --require src/test/setup-headless.js -R progress 'src/test/**/*.test.js' 'src/test/eslint.js'",
+    "test:ci": "mocha --compilers js:babel-register --require src/test/setup-headless.js -R xunit 'src/test/**/*.test.js' 'src/test/eslint.js'",
+    "test:watch": "mocha --compilers js:babel-register --require src/test/setup-headless.js --watch -R min 'src/test/**/*.test.js'",
+    "test:browser": "webpack-dev-server --config webpack-test.config.js --port 3001 --hot --inline"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -14,6 +15,7 @@
     "babel-eslint": "^6.1.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-react-html-attrs": "^2.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.9.0",
@@ -25,11 +27,14 @@
     "eslint-plugin-react": "^5.2.2",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.21.0",
+    "ignore-styles": "^4.0.0",
     "jsdom": "^9.3.0",
+    "json-loader": "^0.5.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "mocha": "^2.5.3",
     "mocha-eslint": "^2.1.1",
+    "mocha-loader": "^0.7.1",
     "postcss-loader": "^0.9.1",
     "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",

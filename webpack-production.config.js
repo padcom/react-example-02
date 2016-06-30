@@ -13,6 +13,7 @@ const config = new Config().extend('./webpack.config.js').merge({
     }),
     // include standard plugins for production build minification
     new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     new webpack.optimize.OccurenceOrderPlugin()
   ]
