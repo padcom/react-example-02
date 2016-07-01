@@ -88,6 +88,8 @@ The CSS/Less loader has been configured so that styles are modules that can be i
 
 You can always create globally scoped classes. To do that define then in `:global { ... }` scope. See `src/main/components/App.less` for example.
 
+A customized version of [classnames-loader](https://www.npmjs.com/package/classnames-loader) has been implemented. In the original version (see link) all you can do is concatenate the classes. In this extended version you can do that too but also you can access individual classes as if they were regular modules. See `src/main/components/Input.js` to see it in action.
+
 ### ESLint
 
 There are 2 special configuration options that are key for this project.
