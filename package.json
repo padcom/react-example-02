@@ -21,6 +21,7 @@
     "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "classnames": "^2.2.5",
+    "classnames-loader": "https://github.com/testdriven/classnames-loader",
     "css-loader": "^0.23.1",
     "enzyme": "^2.3.0",
     "eslint": "^2.13.1",
