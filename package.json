@@ -4,10 +4,8 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline --port 3000",
     "build": "webpack -p --progress --config webpack-production.config.js",
-    "test": "mocha --compilers js:babel-register --require src/test/setup-headless.js -R progress 'src/test/**/*.test.js' 'src/test/eslint.js'",
-    "test:ci": "mocha --compilers js:babel-register --require src/test/setup-headless.js -R xunit 'src/test/**/*.test.js' 'src/test/eslint.js'",
-    "test:watch": "mocha --compilers js:babel-register --require src/test/setup-headless.js --watch -R min 'src/test/**/*.test.js'",
-    "test:browser": "webpack-dev-server --config webpack-test.config.js --port 3001 --hot --inline"
+    "test": "karma start --single-run --browsers PhantomJS",
+    "test:watch": "webpack-dev-server --config webpack-test.config.js --port 3001 --open --hot --inline"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -29,9 +27,13 @@
     "eslint-plugin-react": "^5.2.2",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.21.0",
-    "ignore-styles": "^4.0.0",
-    "jsdom": "^9.3.0",
     "json-loader": "^0.5.4",
+    "karma": "^1.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-junit-reporter": "^1.1.0",
+    "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-webpack": "^1.7.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "mocha": "^2.5.3",

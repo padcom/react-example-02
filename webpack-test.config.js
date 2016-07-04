@@ -20,10 +20,7 @@ const config = new Config().extend('./webpack.config.js').merge({
 });
 
 // override entry point to run tests automatically
-config.entry = 'mocha!./src/test/setup-browser.js';
-
-// strip react-hot loader
-config.module.loaders[0].loader = config.module.loaders[0].loader.replace('react-hot!', '');
+config.entry = 'mocha!./src/test/setup.js';
 
 // export the final configuration
 module.exports = config;

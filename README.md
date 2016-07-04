@@ -21,7 +21,7 @@ Having those two separated allows to easily running commands from npm scripts.
 
 [Redux](http://redux.js.org/) is used to maintain the application state.
 
-[MochaJS](http://mochajs.org), [Chai](http://chaijs.com) and [Enzyme](http://airbnb.io/enzyme) are used for testing.
+[Karma](https://karma-runner.github.io), [MochaJS](http://mochajs.org), [Chai](http://chaijs.com) and [Enzyme](http://airbnb.io/enzyme) are used for testing.
 
 [Babel](https://babeljs.io/) is used to transpile code from ES6 to ES5 (with es2015 and react presets)
 
@@ -40,23 +40,11 @@ Starts development server listening on port 3000 with hot reloading.
 Starts Mocha in watch mode running all tests when the sources change.
 The reporter here is `min` which will only show the summary and status of failed tests.
 ESLint test is not executed to speed up the execution of tests but that one is part of the `npm start` process.
-
-#### npm run test:browser
-
-Starts Mocha tests in hot reload mode with preview listening on port 3001. After starting it open your favorite browser and navigate to [http://localhost:3001](http://localhost:3001) and you shall see the test results.
-
-This mode has this beautiful property that whatever you change all connected tests get re-launched automatically! It's like magic - only better :)
+Open http://localhost:3001 to run tests.
 
 #### npm test
 
-Runs all tests. It is intended for local use (not CI). This includes all tests, including ESlint.
-
-#### npm -s run test:ci
-
-Runs all tests. It is intended for local use in CI environment. The configured reporter
-here is xunit to allow for easy integration with CI servers like Bamboo and Jenkins.
-
-Please note the use of `-s` switch which disables additional npm output.
+Runs all tests. It is intended for local use in CI environment. The configured reporter here is junit to allow for easy integration with CI servers like Bamboo and Jenkins.
 
 #### npm run build
 

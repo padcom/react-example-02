@@ -23,6 +23,9 @@ module.exports = {
       { test: /\.(gif|png|jpg|jpeg|svg)($|\?)/, loader: 'url?limit=5000&hash=sha512&digest=hex&size=16&name=assets/[name]-[hash].[ext]' }
     ]
   },
+  webpackMiddleware: {
+    noInfo: true
+  },
   postcss() {
     // configuration for the postcss loader;
     // enables autoprefixer postprocessor in CSS
