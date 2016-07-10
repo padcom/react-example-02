@@ -92,10 +92,9 @@ That additional configuration is done in `.eslintrc` in the root folder and can 
 
 ### Test environment
 
-There are 3 special properties of the test environment:
+There are 2 things to know about the test environment:
 
-  - all tests are run in a simulated browser environment using [jsdom](https://github.com/tmpvar/jsdom). The advantage over using things like PhantomJS is speed - tests run approximately 3-4 times faster due to very long startup time of the browser.
-  - chai's `expect` and enzyme's `mount`, `shallow` and `render` methods are available globally
+  - chai's `expect`, enzyme's `mount`, `shallow` and `render` methods as well as the `React` object are available globally
   - a preconfigured `mockStore` ([redux-mock-store](https://github.com/arnaudbenard/redux-mock-store)) is also available globally (see `src/test/components/Title.test.js`)
 
 The entire setup of test environment happens in `src/test/setup.js` and can serve as extension point for
