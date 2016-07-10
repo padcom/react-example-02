@@ -43,7 +43,7 @@ Open http://localhost:3001 to run tests.
 
 #### npm test
 
-Runs all tests. It is intended for local use in CI environment. The configured reporter here is junit to allow for easy integration with CI servers like Bamboo and Jenkins.
+Runs all tests. It is intended for use in CI environment. The configured reporter here is junit to allow for easy integration with CI servers like Bamboo and Jenkins.
 
 #### npm lint
 
