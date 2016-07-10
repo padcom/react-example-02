@@ -30,6 +30,9 @@ module.exports = function(config) {
     },
     // webpack configuration
     webpack: webpack,
+    webpackMiddleware: {
+      stats: { colors: true, modules: false, chunks: false, timings: true }
+    },
     // test results reporter to use; possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: [ 'progress', 'junit', 'coverage' ],
