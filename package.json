@@ -4,6 +4,7 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline --port 3000",
     "build": "webpack -p --progress --config webpack-production.config.js",
+    "lint": "eslint 'src/**/*.js'",
     "test": "karma start --single-run --browsers PhantomJS",
     "test:watch": "webpack-dev-server --config webpack-test.config.js --port 3001 --open --hot --inline"
   },

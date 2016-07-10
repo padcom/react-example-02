@@ -39,17 +39,20 @@ Starts development server listening on port 3000 with hot reloading.
 
 Starts Mocha in watch mode running all tests when the sources change.
 The reporter here is `min` which will only show the summary and status of failed tests.
-ESLint test is not executed to speed up the execution of tests but that one is part of the `npm start` process.
 Open http://localhost:3001 to run tests.
 
 #### npm test
 
 Runs all tests. It is intended for local use in CI environment. The configured reporter here is junit to allow for easy integration with CI servers like Bamboo and Jenkins.
 
+#### npm lint
+
+Executes static code analysis. Designed to be part of the CI environment. ESLint is hooked up as a preprocessor for all `.js` files in the project when running
+`npm start` so you'll see all the validation messages in the console while developing your app.
+
 #### npm run build
 
 Builds a production version of the application.
-
 
 ### Project structure
 

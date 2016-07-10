@@ -24,5 +24,8 @@ config.module.loaders[0].loader = config.module.loaders[0].loader.replace('react
 // minify css class names
 config.module.loaders[1].loaders[2] = 'css?modules&localIdentName=[hash:base64:5]',
 
+// disable ESLint module preloader for production build
+config.module.preLoaders = config.module.preLoaders.slice(1);
+
 // export the final configuration
 module.exports = config;
