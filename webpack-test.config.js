@@ -19,6 +19,10 @@ const config = new Config().extend('./webpack.config.js').merge({
   }
 });
 
+// strip react-hot loader; this is necessary to allow Mocha to re-run
+// all tests that depend on the currently modified files
+config.module.loaders[0].loader = config.module.loaders[0].loader.replace('react-hot!', '');
+
 // override entry point to run tests automatically
 config.entry = 'mocha!./src/test/setup.js';
 
