@@ -37,8 +37,8 @@ Starts development server listening on port 3000 with hot reloading.
 
 #### npm run test:watch
 
-Starts Mocha in watch mode running all tests when the sources change.
-The reporter here is `min` which will only show the summary and status of failed tests.
+Starts webpack-dev-server in watch mode running tests. It is clever enough to know which modules have ties to which tests and when the sources change re-runs the dependant tests automatically.
+
 Open http://localhost:3001 to run tests.
 
 #### npm test
