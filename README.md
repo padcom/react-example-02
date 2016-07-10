@@ -125,3 +125,7 @@ The project should allow for easy extension and tweaking. To achieve that all co
   - making eslint like what you added in previous point - `src/test/.eslintrc - globals`
   - adding new actions and reducers - create a new file in `src/main/state` with the name of the new key in global state scope, export object with actions by default and `reducer` as a named export. Add the `reducer` named export to `src/main/reducers.js` and use default export with actions as you see fit.
   - adding a new component - create a new file in `src/main/components` (try to keep it stateless!)
+
+A word of caution: The current design of webpack configuration is based on the idea that the default configuration is geared 100% towards the development experience and other configuration types are derived from it. Deriving from a concrete version of the configuration poses a few challenges, like 'how do you remove a loader?', 'how do you change the preloaders configuration?'. To achieve those the ordering of elements in `webpack.config.js` is not arbitrary. Therefore other configurations (like for example the production build) can take advantage of the indexation and access individual items in configuration arrays.
+
+So whenever you want to add something to the configuration make sure you don't destroy the order of things defined in `webpack.config.js`
