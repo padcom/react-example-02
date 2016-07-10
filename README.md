@@ -13,9 +13,10 @@ Many frameworks out in the wild have some sort of command-line utility that allo
 The solution is based on Webpack. The configuration file is split into 2:
 
   - webpack.config.js - default set of configuration options
+  - webpack-test.config.js - overrides for tests
   - webpack-production.config.js - overrides for production builds
 
-Having those two separated allows to easily running commands from npm scripts.
+Having those separated allows running commands from npm scripts in the proper context and with the appropriate build configuration.
 
 [React](https://facebook.github.io/react/) is used to represent application state.
 
@@ -39,16 +40,15 @@ Starts development server listening on port 3000 with hot reloading.
 
 Starts webpack-dev-server in watch mode running tests. It is clever enough to know which modules have ties to which tests and when the sources change re-runs the dependant tests automatically.
 
-Open http://localhost:3001 to run tests.
+Open [http://localhost:3001](http://localhost:3001) to run tests.
 
 #### npm test
 
-Runs all tests. It is intended for use in CI environment. The configured reporter here is junit to allow for easy integration with CI servers like Bamboo and Jenkins.
+Runs all tests. It is intended for use in CI environment. The configured reporter here is junit to allow for easy integration with CI servers like Bamboo and Jenkins. Test results are stored in `target` folder, for example `target/TESTS-PhantomJS_2.1.1_(Linux_0.0.0).xml`
 
 #### npm lint
 
-Executes static code analysis. Designed to be part of the CI environment. ESLint is hooked up as a preprocessor for all `.js` files in the project when running
-`npm start` so you'll see all the validation messages in the console while developing your app.
+Executes static code analysis. Designed to be part of the CI environment. ESLint is hooked up as a preprocessor for all `.js` files in the project when running `npm start` so you'll see all the validation messages in the console (in the browser!) while developing your app.
 
 #### npm run build
 
@@ -60,12 +60,13 @@ Organization of the project is very similar in many aspects to that of a Java Ma
 This means that all main project source files are inside of `src/main` folder, all tests are located
 underneath `src/test`, all output goes to `target` (not `dist` as it usually is with Node projects).
 
-There are 2 main entry points in the build:
+There are 3 main entry points in the build:
 
   - `src/main/index.js` - entry point for the application
   - `src/main/index.html` - entry point for the browser
+  - `src/test/setup.js` - entry point for tests
 
-Both entry points undergo some sort of processing. `index.js` is compiled using Babel ES6 transpiler. `index.html` gets injected with the transpiled version of `index.js`.
+All entry points undergo some sort of processing. `index.js` and `setup.js` are compiled using Babel ES6 transpiler. `index.html` gets injected with the transpiled version of `index.js`.
 
 ### Babel configuration
 
@@ -79,12 +80,13 @@ The CSS/Less loader has been configured so that styles are modules that can be i
 
 You can always create globally scoped classes. To do that define then in `:global { ... }` scope. See `src/main/components/App.less` for example.
 
-A customized version of [classnames-loader](https://www.npmjs.com/package/classnames-loader) has been implemented. In the original version (see link) all you can do is concatenate the classes. In this extended version you can do that too but also you can access individual classes as if they were regular modules. See `src/main/components/Input.js` to see it in action.
+A [customized](https://github.com/testdriven/classnames-loader) version of [classnames-loader](https://www.npmjs.com/package/classnames-loader) has been implemented. In the original version  all you can do is concatenate the classes. In this extended version you can do that too but also you can access individual classes as if they were regular modules. See `src/main/components/Input.js` to see it in action.
 
 ### ESLint
 
-There are 2 special configuration options that are key for this project.
+There are 3 special configuration options that are key for this project.
 
+  - `complexity` (as in cyclomatic code complexity) is set to be at most 5
   - `react/prop-types` is disabled (I don't care about those - yet)
   - `react/no-unknown-property` is tweaked because we're using [react-html-attrs](https://github.com/insin/babel-plugin-react-html-attrs) Babel plugin.
 
@@ -99,6 +101,8 @@ There are 2 things to know about the test environment:
 
 The entire setup of test environment happens in `src/test/setup.js` and can serve as extension point for
 further enhancements.
+
+ESLint configuration is tweaked in tests to reflect that setup. In particular global variables are made available for the linter.
 
 ### Application structure - Redux store and reducers
 
