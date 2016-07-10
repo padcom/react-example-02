@@ -44,7 +44,7 @@ Open [http://localhost:3001](http://localhost:3001) to run tests.
 
 #### npm test
 
-Runs all tests. It is intended for use in CI environment. The configured reporter here is junit to allow for easy integration with CI servers like Bamboo and Jenkins. Test results are stored in `target` folder, for example `target/TESTS-PhantomJS_2.1.1_(Linux_0.0.0).xml`
+Runs all tests. It is intended for use in CI environment. The configured reporter here is junit to allow for easy integration with CI servers like Bamboo and Jenkins. Test results are stored in `target` folder, for example `target/tests/test-results.xml`. When running tests code coverage is analyzed and the results land in `target/coverage/` in html, cobertura and text summary/details forms.
 
 #### npm lint
 

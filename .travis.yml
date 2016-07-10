@@ -6,4 +6,6 @@ install:
 script:
     - npm run lint
     - npm test
+    - cat target/coverage/summary.txt
+    - cat target/coverage/details.txt
     - npm run build

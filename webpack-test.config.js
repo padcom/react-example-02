@@ -7,6 +7,7 @@ const config = new Config().extend('./webpack.config.js').merge({
   // enable loaders that are specific to tests
   module: {
     loaders: [
+      // json loader needed for testing (mocha-specific)
       { test: /\.json$/, loader: 'json-loader' }
     ]
   },
