@@ -7,10 +7,30 @@ import TitleActions from '../state/title';
 
 import css from './Input.less';
 
-const Input = ({ title, actions }) => {
+/**
+ * Input field
+ *
+ * @class Input
+ * @
+ */
+const Input = ({
+  /**
+   * Title
+   * @public
+   * @property title
+   * @type {string}
+   */
+  title,
+  /**
+   * Actions object
+   * @private
+   * @property actions
+   */
+  actions
+}) => {
   return (
     <div class={css.component}>
-      <label class={css({ label: true, red: true })}>Enter title</label>
+      <label class={css({ label: true, green: true })}>Enter title</label>
       <input class={css.textbox} value={title} onChange={e => actions.changeTitle(e.target.value)} autoFocus />
     </div>
   )
